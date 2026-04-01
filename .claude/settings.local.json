@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s -I \"https://api.github.com/repos/Bradshawrc93/v0-operator-website\")",
+      "WebFetch(domain:api.github.com)",
+      "Read(//Users/codybradshaw/**)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --no-import-alias --turbopack)"
+    ]
+  }
+}
