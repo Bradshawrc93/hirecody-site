@@ -5,7 +5,13 @@
       "Bash(curl -s -I \"https://api.github.com/repos/Bradshawrc93/v0-operator-website\")",
       "WebFetch(domain:api.github.com)",
       "Read(//Users/codybradshaw/**)",
-      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --no-import-alias --turbopack)"
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --no-import-alias --turbopack)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:v0.app)",
+      "Bash(curl:*)",
+      "Bash(npm install:*)",
+      "Bash(node:*)",
+      "Bash(npx next:*)"
     ]
   }
 }
