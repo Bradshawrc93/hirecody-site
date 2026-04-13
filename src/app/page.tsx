@@ -174,11 +174,11 @@ export default function Home() {
           </span>
 
           <div className="flex flex-col items-center text-center gap-2 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-6 transition-all duration-200">
-            <h3 className="flex items-center justify-center gap-2 text-foreground font-semibold text-lg leading-snug">
-              <Server size={20} style={{ color: '#C56A2D' }} strokeWidth={2.25} />
+            <h3 className="flex items-center justify-center gap-2 text-foreground font-semibold text-sm leading-snug">
+              <Server size={16} style={{ color: '#C56A2D' }} strokeWidth={2.25} />
               {obs.title}
             </h3>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
               <em className="text-foreground/80">{obs.subtitle}</em> — {obs.description}
             </p>
           </div>
@@ -214,10 +214,10 @@ export default function Home() {
                       {app.tag}
                     </span>
                   </div>
-                  <h3 className="text-foreground font-semibold text-lg leading-snug">
+                  <h3 className="text-foreground font-semibold text-sm leading-snug">
                     {app.title}
                   </h3>
-                  <p className="text-muted-foreground text-base leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {app.description}
                   </p>
                 </div>
