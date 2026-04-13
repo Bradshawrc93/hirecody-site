@@ -11,13 +11,13 @@ export default function Footer() {
           <Link href="/about" className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200">
             About
           </Link>
-          <Link href="/how-i-operate" className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200">
-            How I Operate
+          <Link href="/#apps" className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200">
+            Apps
           </Link>
           <a href="mailto:bradshawrc93@gmail.com" className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200">
             Email
           </a>
-          <a href="https://linkedin.com/in/bradshawrc93" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200">
+          <a href="https://www.linkedin.com/in/cody-bradshaw-41965017b/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200">
             LinkedIn
           </a>
         </nav>

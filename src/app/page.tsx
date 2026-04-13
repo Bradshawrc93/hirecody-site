@@ -1,148 +1,229 @@
-import Link from 'next/link'
-import { Users, Settings, Cpu, ArrowUpRight, Send } from 'lucide-react'
+import { Server, MessageCircle, BookOpen, Search, Swords, Send } from 'lucide-react'
 
-const caseStudies = [
+const obs = {
+  tag: 'Foundation',
+  title: 'Obs',
+  subtitle: 'AI Observability Platform',
+  description:
+    'Centralized monitoring dashboard every other project reports into. Tracks cost, latency, errors, token usage, and prompt versions across the portfolio.',
+}
+
+const feederApps = [
   {
-    href: '/case-studies/support-org-from-zero',
-    tag: 'Team Building & Scaling',
-    title: 'Building a Support & Delivery Org from Zero',
+    tag: 'Public',
+    title: 'Portfolio Chat Bot',
     description:
-      'How I grew a 6-person team into a 75+ person cross-functional organization across four countries.',
-    icon: Users,
+      'A conversational agent on the site that knows my career story — recruiters talk to a digital twin instead of reading a static resume.',
+    icon: MessageCircle,
   },
   {
-    href: '/case-studies/product-ops-post-acquisition',
-    tag: 'Product Operations',
-    title: 'Standing Up Product Operations Post-Acquisition',
+    tag: 'Daily Driver',
+    title: '日本語 Dojo',
     description:
-      'Creating a product ops function from scratch during a multi-company healthtech rollup.',
-    icon: Settings,
+      'Adaptive Japanese tutor with AI-generated chapters, exercises, and a live tutor chat that evolves with my progress.',
+    icon: BookOpen,
   },
   {
-    href: '/case-studies/ai-in-the-workplace',
-    tag: 'AI & Automation',
-    title: 'Bringing AI Into the Workplace',
+    tag: 'Public',
+    title: 'Roast My Process',
     description:
-      'How I used AI tools to automate workflows, accelerate output, and lead adoption by example.',
-    icon: Cpu,
+      'Describe a manual workflow, get an AI analysis of where automation could be inserted — with specific recommendations and time-savings estimates.',
+    icon: Search,
+  },
+  {
+    tag: 'Public',
+    title: 'Prompt Arena',
+    description:
+      '6 models, 1 target output. Craft the right prompt for the right model and learn how LLMs actually differ through play.',
+    icon: Swords,
   },
 ]
 
 export default function Home() {
+  const chatWidget = (
+    <div className="bg-card border border-border rounded-xl flex flex-col h-[320px]">
+      <div className="px-5 py-3 border-b border-border flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-green-500" />
+        <span className="text-sm font-medium text-foreground">Chat with AI Cody</span>
+      </div>
+      <div className="flex-1 px-5 py-4 overflow-y-auto">
+        <div className="flex gap-3">
+          <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+            <span className="text-xs font-bold text-primary">C</span>
+          </div>
+          <div className="bg-secondary border border-border rounded-lg rounded-tl-none px-4 py-2.5 max-w-[85%]">
+            <p className="text-sm text-foreground leading-relaxed">
+              Hi there! Feel free to ask me any questions — I&apos;m trained by Cody.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="px-4 py-3 border-t border-border">
+        <div className="flex items-center gap-2">
+          <input
+            type="text"
+            placeholder="Ask me about Cody's experience..."
+            disabled
+            className="flex-1 bg-background border border-border rounded-lg px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 disabled:opacity-60 disabled:cursor-not-allowed"
+          />
+          <button
+            disabled
+            className="shrink-0 bg-primary text-primary-foreground p-2 rounded-lg hover:bg-primary/90 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            <Send className="w-4 h-4" strokeWidth={2} />
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <>
-      {/* Hero — two column: left bio/links, right chat */}
-      <section className="pt-28 pb-16 px-6 max-w-5xl mx-auto">
-        <div className="flex items-center gap-3 mb-8">
-          <span className="w-8 h-px bg-primary" />
-          <span className="text-primary text-sm font-medium tracking-wide uppercase">
-            R. Cody Bradshaw
-          </span>
-        </div>
+      {/* Hero — two column on lg: left bio/links, right chat */}
+      <section className="pt-20 pb-16 px-6 max-w-5xl mx-auto">
+        <hr className="border-t border-border mb-8" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left — profile info, links, blurb */}
           <div className="flex flex-col">
             {/* Profile details */}
-            <div className="text-sm text-foreground space-y-1 mb-6">
+            <div className="text-sm text-foreground space-y-1 mb-12">
               <p>Austin, TX (open to remote)</p>
               <p>Sr. Manager, Product Ops @ Smarter Technologies</p>
               <p>7+ years in ops, support &amp; program leadership</p>
             </div>
 
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              I&apos;ve scaled a 6-person support team into a 75+ person
-              cross-functional organization, stood up product operations during a
-              multi-company acquisition, and built the financial models and
-              reporting systems that executives rely on to make decisions.
-              I&apos;m most effective when things are messy, undefined, and need
-              someone to make them work.
+            <p className="text-muted-foreground text-xs uppercase tracking-[0.2em] mb-2">
+              Known as
             </p>
+            <h1 className="text-foreground text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
+              Zero-to-One Operator
+            </h1>
+            <h2 className="text-foreground text-3xl md:text-4xl font-semibold tracking-tight leading-tight mt-1">
+              AI Enabler
+            </h2>
+            <h2 className="text-foreground text-3xl md:text-4xl font-semibold tracking-tight leading-tight mt-1">
+              Ops Engineer
+            </h2>
           </div>
 
-          {/* Right — AI chat placeholder */}
-          <div className="bg-card border border-border rounded-xl flex flex-col h-[320px]">
-            {/* Chat header */}
-            <div className="px-5 py-3 border-b border-border flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500" />
-              <span className="text-sm font-medium text-foreground">Chat with AI Cody</span>
-            </div>
-
-            {/* Messages area */}
-            <div className="flex-1 px-5 py-4 overflow-y-auto">
-              <div className="flex gap-3">
-                <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-xs font-bold text-primary">C</span>
-                </div>
-                <div className="bg-secondary border border-border rounded-lg rounded-tl-none px-4 py-2.5 max-w-[85%]">
-                  <p className="text-sm text-foreground leading-relaxed">
-                    Hi there! Feel free to ask me any questions — I&apos;m trained by Cody.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Input area */}
-            <div className="px-4 py-3 border-t border-border">
-              <div className="flex items-center gap-2">
-                <input
-                  type="text"
-                  placeholder="Ask me about Cody's experience..."
-                  disabled
-                  className="flex-1 bg-background border border-border rounded-lg px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 disabled:opacity-60 disabled:cursor-not-allowed"
-                />
-                <button
-                  disabled
-                  className="shrink-0 bg-primary text-primary-foreground p-2 rounded-lg hover:bg-primary/90 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  <Send className="w-4 h-4" strokeWidth={2} />
-                </button>
-              </div>
-            </div>
-          </div>
+          {/* Right — AI chat (lg+ only) */}
+          <div className="hidden lg:block">{chatWidget}</div>
         </div>
       </section>
 
-      {/* Case Studies */}
-      <section className="pb-24 px-6 max-w-5xl mx-auto">
+      {/* Narrative: Why / Thesis / What's Here */}
+      <section className="pb-16 px-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          <div>
+            <h2 className="text-foreground font-semibold text-sm tracking-wide uppercase mb-3">
+              Why These Three Titles?
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              They&apos;re the same instinct applied three ways. My career has
+              been a series of walking into situations where the thing that
+              needed to exist didn&apos;t — no playbook, no predecessor, no
+              team on day one — and making it real. I build from zero, I make
+              the systems that keep it running, and now I&apos;m doing it with
+              AI.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-foreground font-semibold text-sm tracking-wide uppercase mb-3">
+              The Thesis
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Every company will have an AI Enablement function. Not a
+              committee that debates strategy in quarterly reviews — a team
+              that gets into the workflows, finds where AI creates real
+              leverage, implements it, measures the impact, and keeps pushing.
+              A continuous charter to unlock capacity and compound output by
+              putting AI to work where it actually matters. Most companies
+              don&apos;t have this yet. That&apos;s the gap. I&apos;m building
+              for it.
+            </p>
+          </div>
+        </div>
+
+        {/* Mobile-only chat (lg hides it since it's shown in the hero) */}
+        <div className="lg:hidden mt-10">{chatWidget}</div>
+      </section>
+
+      {/* Apps */}
+      <section id="apps" className="pb-24 px-6 max-w-5xl mx-auto scroll-mt-24">
         <div className="flex items-center gap-3 mb-6">
           <span className="w-8 h-px bg-primary" />
           <span className="text-primary text-sm font-medium tracking-wide uppercase">
-            Case Studies
+            Apps
           </span>
         </div>
 
-        <div className="space-y-3">
-          {caseStudies.map((study) => {
-            const Icon = study.icon
-            return (
-              <Link
-                key={study.href}
-                href={study.href}
-                className="group flex items-center gap-5 bg-card border border-border rounded-xl p-5 hover:shadow-md hover:border-primary/30 transition-all duration-200"
-              >
-                <div className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center shrink-0">
-                  <Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-3 mb-1">
-                    <h3 className="text-foreground font-semibold text-sm leading-snug">
-                      {study.title}
-                    </h3>
-                    <span className="hidden sm:inline text-xs text-muted-foreground bg-secondary border border-border rounded-full px-2.5 py-0.5 shrink-0">
-                      {study.tag}
+        {/* Zone 1: Observability & Telemetry */}
+        <div
+          className="relative rounded-2xl border border-border/60 p-5 pt-12 md:p-8 md:pt-12 mb-6"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle, rgba(43, 43, 43, 0.08) 1px, transparent 1px)',
+            backgroundSize: '18px 18px',
+            backgroundColor: 'rgba(241, 233, 221, 0.35)',
+          }}
+        >
+          <span className="absolute top-3 left-4 text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-semibold bg-background/90 border border-border/60 rounded-full px-2.5 py-1">
+            Observability &amp; Telemetry
+          </span>
+
+          <div className="flex flex-col items-center text-center gap-2 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-6 transition-all duration-200">
+            <h3 className="flex items-center justify-center gap-2 text-foreground font-semibold text-lg leading-snug">
+              <Server size={20} style={{ color: '#C56A2D' }} strokeWidth={2.25} />
+              {obs.title}
+            </h3>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
+              <em className="text-foreground/80">{obs.subtitle}</em> — {obs.description}
+            </p>
+          </div>
+        </div>
+
+        {/* Zone 2: Applications */}
+        <div
+          className="relative rounded-2xl border border-border/60 p-5 pt-12 md:p-8 md:pt-12"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle, rgba(43, 43, 43, 0.08) 1px, transparent 1px)',
+            backgroundSize: '18px 18px',
+            backgroundColor: 'rgba(241, 233, 221, 0.35)',
+          }}
+        >
+          <span className="absolute top-3 left-4 text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-semibold bg-background/90 border border-border/60 rounded-full px-2.5 py-1">
+            Applications
+          </span>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {feederApps.map((app) => {
+              const Icon = app.icon
+              return (
+                <div
+                  key={app.title}
+                  className="flex flex-col gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-5 h-full transition-all duration-200"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
+                    </div>
+                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground bg-secondary border border-border rounded-full px-2 py-0.5">
+                      {app.tag}
                     </span>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed truncate">
-                    {study.description}
+                  <h3 className="text-foreground font-semibold text-lg leading-snug">
+                    {app.title}
+                  </h3>
+                  <p className="text-muted-foreground text-base leading-relaxed">
+                    {app.description}
                   </p>
                 </div>
-                <div className="shrink-0 flex items-center gap-1 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  <ArrowUpRight className="w-4 h-4" strokeWidth={2} />
-                </div>
-              </Link>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
       </section>
     </>

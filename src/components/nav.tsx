@@ -13,14 +13,6 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const caseStudies = [
-    { href: '/case-studies/support-org-from-zero', label: 'Support Org from Zero' },
-    { href: '/case-studies/product-ops-post-acquisition', label: 'Product Ops Post-Acquisition' },
-    { href: '/case-studies/ai-in-the-workplace', label: 'AI in the Workplace' },
-  ]
-
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -36,55 +28,23 @@ export default function Nav() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {/* Case Studies dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
+          <Link
+            href="/#apps"
+            className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200"
           >
-            <button className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200 flex items-center gap-1">
-              Case Studies
-              <svg
-                className={`w-3 h-3 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {dropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-64 rounded-xl bg-background border border-border p-2 shadow-lg">
-                {caseStudies.map((study) => (
-                  <Link
-                    key={study.href}
-                    href={study.href}
-                    className="block rounded-lg px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors duration-200"
-                  >
-                    {study.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
+            Apps
+          </Link>
           <Link
             href="/about"
             className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200"
           >
             About
           </Link>
-          <Link
-            href="/how-i-operate"
-            className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200"
-          >
-            How I Operate
-          </Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://linkedin.com/in/bradshawrc93"
+            href="https://www.linkedin.com/in/cody-bradshaw-41965017b/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-200"
@@ -100,7 +60,7 @@ export default function Nav() {
           </a>
           <a
             href="https://obs.hirecody.dev"
-            className="inline-flex items-center gap-2 bg-[#0A0A0B] text-primary text-sm font-medium px-4 py-2 rounded-lg border border-[#1F1F24] hover:bg-[#16161A] transition-colors duration-200"
+            className="inline-flex items-center gap-2 bg-[#10131F] text-primary text-sm font-bold px-4 py-2 rounded-lg border border-[#1F1F24] hover:bg-[#161A28] transition-colors duration-200"
           >
             Obs
             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -128,20 +88,13 @@ export default function Nav() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-background border-b border-border px-6 pb-4 space-y-3">
-          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider pt-1">
-            Case Studies
-          </p>
-          {caseStudies.map((study) => (
-            <Link
-              key={study.href}
-              href={study.href}
-              onClick={() => setMobileOpen(false)}
-              className="block text-muted-foreground hover:text-foreground text-sm pl-3 transition-colors"
-            >
-              {study.label}
-            </Link>
-          ))}
-          <hr className="border-border" />
+          <Link
+            href="/#apps"
+            onClick={() => setMobileOpen(false)}
+            className="block text-muted-foreground hover:text-foreground text-sm transition-colors pt-1"
+          >
+            Apps
+          </Link>
           <Link
             href="/about"
             onClick={() => setMobileOpen(false)}
@@ -149,15 +102,8 @@ export default function Nav() {
           >
             About
           </Link>
-          <Link
-            href="/how-i-operate"
-            onClick={() => setMobileOpen(false)}
-            className="block text-muted-foreground hover:text-foreground text-sm transition-colors"
-          >
-            How I Operate
-          </Link>
           <a
-            href="https://linkedin.com/in/bradshawrc93"
+            href="https://www.linkedin.com/in/cody-bradshaw-41965017b/"
             target="_blank"
             rel="noopener noreferrer"
             className="block text-primary text-sm font-medium"
@@ -173,7 +119,7 @@ export default function Nav() {
           </a>
           <a
             href="https://obs.hirecody.dev"
-            className="inline-flex items-center gap-2 bg-[#0A0A0B] text-primary text-sm font-medium px-4 py-2 rounded-lg border border-[#1F1F24]"
+            className="inline-flex items-center gap-2 bg-[#10131F] text-primary text-sm font-bold px-4 py-2 rounded-lg border border-[#1F1F24]"
           >
             Obs
             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
