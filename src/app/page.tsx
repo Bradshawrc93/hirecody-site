@@ -36,10 +36,12 @@ const feederApps = [
       'Turns tribal knowledge into executable automation. Any non-technical teammate can convert their own repetitive work into a shareable, running process without writing code.',
   },
   {
-    tag: 'TBD',
-    title: 'Coming Soon',
+    tag: 'Local Models',
+    title: 'Private AI Workbench',
     description:
-      'Placeholder for a future experiment — still in ideation.',
+      'An on-prem setup for running, evaluating, and continuously improving local models — benchmarking performance across models, tracking responses, and catching hallucinations over time. Specific shape still in ideation.',
+    applicability:
+      'Mission critical for companies that need AI fully in-house for data residency, compliance, or cost control — a playbook for standing up local models and keeping them trustworthy as they evolve.',
   },
 ]
 
