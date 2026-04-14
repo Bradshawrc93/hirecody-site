@@ -1,4 +1,4 @@
-import { Server, MessageCircle, BookOpen, Search, Swords, Send } from 'lucide-react'
+import { Server, Send } from 'lucide-react'
 
 const obs = {
   tag: 'Foundation',
@@ -6,36 +6,40 @@ const obs = {
   subtitle: 'AI Observability Platform',
   description:
     'Centralized monitoring dashboard every other project reports into. Tracks cost, latency, errors, token usage, and prompt versions across the portfolio.',
+  thesis:
+    'Observability and telemetry are the lifeforce of the AI movement. You cannot scale, trust, or improve what you cannot see — and as companies race to deploy AI into real workflows, the ones who win will be the ones who instrumented it from day one. Obs is my bet on that future, and the foundation every other project here is built to report into.',
 }
 
 const feederApps = [
   {
-    tag: 'Public',
+    tag: 'AI Chatbot',
     title: 'Portfolio Chat Bot',
     description:
       'A conversational agent on the site that knows my career story — recruiters talk to a digital twin instead of reading a static resume.',
-    icon: MessageCircle,
+    applicability:
+      'Demonstrates retrieval-grounded chat and knowledge-base UX — the same pattern behind internal helpdesk bots, employee onboarding assistants, and customer support agents.',
   },
   {
-    tag: 'Daily Driver',
-    title: '日本語 Dojo',
+    tag: 'Adaptive Learning',
+    title: '日本語 Trainer',
     description:
       'Adaptive Japanese tutor with AI-generated chapters, exercises, and a live tutor chat that evolves with my progress.',
-    icon: BookOpen,
+    applicability:
+      'The same adaptive framework could power monthly workforce training — auto-generating compliance refreshers, product updates, or role-specific upskilling content that adjusts to each employee.',
   },
   {
-    tag: 'Public',
-    title: 'Roast My Process',
+    tag: 'Automation',
+    title: 'Workflow Forge',
     description:
-      'Describe a manual workflow, get an AI analysis of where automation could be inserted — with specific recommendations and time-savings estimates.',
-    icon: Search,
+      'Describe a recurring manual task in plain language — "every month I process invoice batches…" — and get back a complete workflow: the scripts, a step-by-step guide, and a single command to copy-paste into your terminal to run it.',
+    applicability:
+      'Turns tribal knowledge into executable automation. Any non-technical teammate can convert their own repetitive work into a shareable, running process without writing code.',
   },
   {
-    tag: 'Public',
-    title: 'Prompt Arena',
+    tag: 'TBD',
+    title: 'Coming Soon',
     description:
-      '6 models, 1 target output. Craft the right prompt for the right model and learn how LLMs actually differ through play.',
-    icon: Swords,
+      'Placeholder for a future experiment — still in ideation.',
   },
 ]
 
@@ -173,13 +177,16 @@ export default function Home() {
             Observability &amp; Telemetry
           </span>
 
-          <div className="flex flex-col items-center text-center gap-2 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-6 transition-all duration-200">
+          <div className="flex flex-col items-center text-center gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-6 transition-all duration-200">
             <h3 className="flex items-center justify-center gap-2 text-foreground font-semibold text-sm leading-snug">
               <Server size={16} style={{ color: '#C56A2D' }} strokeWidth={2.25} />
               {obs.title}
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
               <em className="text-foreground/80">{obs.subtitle}</em> — {obs.description}
+            </p>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl border-t border-border/60 pt-3 mt-1">
+              {obs.thesis}
             </p>
           </div>
         </div>
@@ -199,30 +206,30 @@ export default function Home() {
           </span>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {feederApps.map((app) => {
-              const Icon = app.icon
-              return (
-                <div
-                  key={app.title}
-                  className="flex flex-col gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-5 h-full transition-all duration-200"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
-                    </div>
-                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground bg-secondary border border-border rounded-full px-2 py-0.5">
-                      {app.tag}
-                    </span>
-                  </div>
-                  <h3 className="text-foreground font-semibold text-sm leading-snug">
-                    {app.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {app.description}
-                  </p>
+            {feederApps.map((app) => (
+              <div
+                key={app.title}
+                className="flex flex-col gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-5 h-full transition-all duration-200"
+              >
+                <div className="flex items-center justify-end">
+                  <span className="text-[10px] uppercase tracking-wider text-muted-foreground bg-secondary border border-border rounded-full px-2 py-0.5">
+                    {app.tag}
+                  </span>
                 </div>
-              )
-            })}
+                <h3 className="text-foreground font-semibold text-sm leading-snug">
+                  {app.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {app.description}
+                </p>
+                {app.applicability && (
+                  <p className="text-muted-foreground text-sm leading-relaxed border-t border-border/60 pt-3 mt-1">
+                    <span className="text-foreground/80 font-medium">Workplace application: </span>
+                    {app.applicability}
+                  </p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
