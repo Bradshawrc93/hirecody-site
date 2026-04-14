@@ -1,4 +1,4 @@
-import { Server, Send } from 'lucide-react'
+import { Server } from 'lucide-react'
 
 const obs = {
   tag: 'Foundation',
@@ -8,9 +8,18 @@ const obs = {
     'Centralized monitoring dashboard every other project reports into. Tracks cost, latency, errors, token usage, and prompt versions across the portfolio.',
   thesis:
     'Observability and telemetry are the lifeforce of the AI movement. You cannot scale, trust, or improve what you cannot see — and as companies race to deploy AI into real workflows, the ones who win will be the ones who instrumented it from day one. Obs is my bet on that future, and the foundation every other project here is built to report into.',
+  url: 'https://obs.hirecody.dev',
 }
 
-const feederApps = [
+type FeederApp = {
+  tag: string
+  title: string
+  description: string
+  applicability: string
+  url?: string
+}
+
+const feederApps: FeederApp[] = [
   {
     tag: 'AI Chatbot',
     title: 'Portfolio Chat Bot',
@@ -18,6 +27,7 @@ const feederApps = [
       'A conversational agent on the site that knows my career story — recruiters talk to a digital twin instead of reading a static resume.',
     applicability:
       'Demonstrates retrieval-grounded chat and knowledge-base UX — the same pattern behind internal helpdesk bots, employee onboarding assistants, and customer support agents.',
+    url: 'https://chatbot.hirecody.dev',
   },
   {
     tag: 'Adaptive Learning',
@@ -47,39 +57,12 @@ const feederApps = [
 
 export default function Home() {
   const chatWidget = (
-    <div className="bg-card border border-border rounded-xl flex flex-col h-[320px]">
-      <div className="px-5 py-3 border-b border-border flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-green-500" />
-        <span className="text-sm font-medium text-foreground">Chat with AI Cody</span>
-      </div>
-      <div className="flex-1 px-5 py-4 overflow-y-auto">
-        <div className="flex gap-3">
-          <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-            <span className="text-xs font-bold text-primary">C</span>
-          </div>
-          <div className="bg-secondary border border-border rounded-lg rounded-tl-none px-4 py-2.5 max-w-[85%]">
-            <p className="text-sm text-foreground leading-relaxed">
-              Hi there! Feel free to ask me any questions — I&apos;m trained by Cody.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="px-4 py-3 border-t border-border">
-        <div className="flex items-center gap-2">
-          <input
-            type="text"
-            placeholder="Ask me about Cody's experience..."
-            disabled
-            className="flex-1 bg-background border border-border rounded-lg px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 disabled:opacity-60 disabled:cursor-not-allowed"
-          />
-          <button
-            disabled
-            className="shrink-0 bg-primary text-primary-foreground p-2 rounded-lg hover:bg-primary/90 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
-          >
-            <Send className="w-4 h-4" strokeWidth={2} />
-          </button>
-        </div>
-      </div>
+    <div className="bg-card border border-border rounded-xl overflow-hidden h-[320px]">
+      <iframe
+        src="https://chatbot.hirecody.dev"
+        title="Chat with AI Cody"
+        className="w-full h-full border-0"
+      />
     </div>
   )
 
@@ -179,7 +162,10 @@ export default function Home() {
             Observability &amp; Telemetry
           </span>
 
-          <div className="flex flex-col items-center text-center gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-6 transition-all duration-200">
+          <a
+            href={obs.url}
+            className="flex flex-col items-center text-center gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-6 transition-all duration-200"
+          >
             <h3 className="flex items-center justify-center gap-2 text-foreground font-semibold text-sm leading-snug">
               <Server size={16} style={{ color: '#C56A2D' }} strokeWidth={2.25} />
               {obs.title}
@@ -190,7 +176,7 @@ export default function Home() {
             <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl border-t border-border/60 pt-3 mt-1">
               {obs.thesis}
             </p>
-          </div>
+          </a>
         </div>
 
         {/* Zone 2: Applications */}
@@ -208,30 +194,40 @@ export default function Home() {
           </span>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {feederApps.map((app) => (
-              <div
-                key={app.title}
-                className="flex flex-col gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-5 h-full transition-all duration-200"
-              >
-                <div className="flex items-center justify-end">
-                  <span className="text-[10px] uppercase tracking-wider text-muted-foreground bg-secondary border border-border rounded-full px-2 py-0.5">
-                    {app.tag}
-                  </span>
-                </div>
-                <h3 className="text-foreground font-semibold text-sm leading-snug">
-                  {app.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {app.description}
-                </p>
-                {app.applicability && (
-                  <p className="text-muted-foreground text-sm leading-relaxed border-t border-border/60 pt-3 mt-1">
-                    <span className="text-foreground/80 font-medium">Workplace application: </span>
-                    {app.applicability}
+            {feederApps.map((app) => {
+              const cardClass =
+                'flex flex-col gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-5 h-full transition-all duration-200'
+              const inner = (
+                <>
+                  <div className="flex items-center justify-end">
+                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground bg-secondary border border-border rounded-full px-2 py-0.5">
+                      {app.tag}
+                    </span>
+                  </div>
+                  <h3 className="text-foreground font-semibold text-sm leading-snug">
+                    {app.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {app.description}
                   </p>
-                )}
-              </div>
-            ))}
+                  {app.applicability && (
+                    <p className="text-muted-foreground text-sm leading-relaxed border-t border-border/60 pt-3 mt-1">
+                      <span className="text-foreground/80 font-medium">Workplace application: </span>
+                      {app.applicability}
+                    </p>
+                  )}
+                </>
+              )
+              return app.url ? (
+                <a key={app.title} href={app.url} className={cardClass}>
+                  {inner}
+                </a>
+              ) : (
+                <div key={app.title} className={cardClass}>
+                  {inner}
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
