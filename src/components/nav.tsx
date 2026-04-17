@@ -58,15 +58,6 @@ export default function Nav() {
           >
             Resume
           </a>
-          <a
-            href="https://obs.hirecody.dev"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-bold px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-200"
-          >
-            Obs
-            <svg className="w-3 h-3 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -116,15 +107,6 @@ export default function Nav() {
             className="block text-primary text-sm font-medium"
           >
             Resume
-          </a>
-          <a
-            href="https://obs.hirecody.dev"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-bold px-4 py-2 rounded-lg"
-          >
-            Obs
-            <svg className="w-3 h-3 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
           </a>
         </div>
       )}

@@ -57,7 +57,7 @@ const feederApps: FeederApp[] = [
 
 export default function Home() {
   const chatWidget = (
-    <div className="bg-card border border-border rounded-xl overflow-hidden h-[320px]">
+    <div className="bg-card border border-border rounded-xl overflow-hidden h-[380px]">
       <iframe
         src="https://chatbot.hirecody.dev"
         title="Chat with AI Cody"
