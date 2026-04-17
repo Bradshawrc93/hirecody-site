@@ -1,4 +1,28 @@
-import { Server } from 'lucide-react'
+import { ArrowUp, MessageSquare, Package, Play, Server } from 'lucide-react'
+
+type Stats = {
+  chatbotMessages: number
+  forgeRuns: number
+  appsRegistered: number
+  asOf: string
+}
+
+async function getStats(): Promise<Stats | null> {
+  try {
+    const res = await fetch('https://obs.hirecody.dev/api/public/stats', {
+      next: { revalidate: 60 },
+    })
+    if (!res.ok) return null
+    return (await res.json()) as Stats
+  } catch {
+    return null
+  }
+}
+
+function formatCount(n: number | undefined) {
+  if (n === undefined || n === null) return '—'
+  return n.toLocaleString()
+}
 
 const obs = {
   tag: 'Foundation',
@@ -22,40 +46,43 @@ type FeederApp = {
 const feederApps: FeederApp[] = [
   {
     tag: 'AI Chatbot',
-    title: 'Portfolio Chat Bot',
+    title: 'ChatBot',
     description:
-      'A conversational agent on the site that knows my career story — recruiters talk to a digital twin instead of reading a static resume.',
+      'Conversational agent trained on me and every app in the portfolio — ask about my background or dig into how any of these projects work.',
     applicability:
       'Demonstrates retrieval-grounded chat and knowledge-base UX — the same pattern behind internal helpdesk bots, employee onboarding assistants, and customer support agents.',
     url: 'https://chatbot.hirecody.dev',
   },
   {
-    tag: 'Adaptive Learning',
-    title: '日本語 Trainer',
-    description:
-      'Adaptive Japanese tutor with AI-generated chapters, exercises, and a live tutor chat that evolves with my progress.',
-    applicability:
-      'The same adaptive framework could power monthly workforce training — auto-generating compliance refreshers, product updates, or role-specific upskilling content that adjusts to each employee.',
-  },
-  {
     tag: 'Automation',
-    title: 'Workflow Forge',
+    title: 'Forge',
     description:
-      'Describe a recurring manual task in plain language — "every month I process invoice batches…" — and get back a complete workflow: the scripts, a step-by-step guide, and a single command to copy-paste into your terminal to run it.',
+      'Automation platform for building and scheduling agents — describe the job, wire up the triggers, and let it run on its own cadence.',
     applicability:
-      'Turns tribal knowledge into executable automation. Any non-technical teammate can convert their own repetitive work into a shareable, running process without writing code.',
+      'Turns tribal knowledge into executable automation. Any non-technical teammate can convert their repetitive work into a shareable, scheduled process without writing code.',
+    url: 'https://forge.hirecody.dev',
   },
   {
-    tag: 'Local Models',
-    title: 'Private AI Workbench',
+    tag: 'Release Notes',
+    title: 'Beacon',
     description:
-      'An on-prem setup for running, evaluating, and continuously improving local models — benchmarking performance across models, tracking responses, and catching hallucinations over time. Specific shape still in ideation.',
+      'Release notes and continuous training for this site and every app in the portfolio — a running changelog paired with on-demand lessons so you can see what shipped and get up to speed on how to use it.',
     applicability:
-      'Mission critical for companies that need AI fully in-house for data residency, compliance, or cost control — a playbook for standing up local models and keeping them trustworthy as they evolve.',
+      'Keeps GTM teams current on the latest product functionality — doubles as the release notes source of truth and a continuous training layer so sales, support, and CS aren’t learning about new features from customers.',
   },
 ]
 
-export default function Home() {
+const workbench = {
+  tag: 'Local Models',
+  title: 'Private AI Workbench',
+  description:
+    'An on-prem setup for running, evaluating, and continuously improving local models — benchmarking performance across models, tracking responses, and catching hallucinations over time. Specific shape still in ideation.',
+  applicability:
+    'Mission critical for companies that need AI fully in-house for data residency, compliance, or cost control — a playbook for standing up local models and keeping them trustworthy as they evolve.',
+}
+
+export default async function Home() {
+  const stats = await getStats()
   const chatWidget = (
     <div className="bg-card border border-border rounded-xl overflow-hidden h-[380px]">
       <iframe
@@ -148,9 +175,41 @@ export default function Home() {
           </span>
         </div>
 
-        {/* Zone 1: Observability & Telemetry */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+          {[
+            {
+              label: 'Chatbot Messages',
+              value: formatCount(stats?.chatbotMessages),
+              icon: MessageSquare,
+            },
+            {
+              label: 'Forge Runs',
+              value: formatCount(stats?.forgeRuns),
+              icon: Play,
+            },
+            {
+              label: 'Apps on Obs',
+              value: formatCount(stats?.appsRegistered),
+              icon: Package,
+            },
+          ].map(({ label, value, icon: Icon }) => (
+            <div
+              key={label}
+              className="flex flex-col gap-2 bg-card border border-border rounded-xl p-5"
+            >
+              <div className="flex items-center gap-2 text-muted-foreground text-[11px] uppercase tracking-[0.15em] font-medium">
+                <Icon size={14} strokeWidth={2} className="text-primary/80" />
+                {label}
+              </div>
+              <div className="text-foreground text-3xl font-semibold tracking-tight tabular-nums">
+                {value}
+              </div>
+            </div>
+          ))}
+        </div>
+
         <div
-          className="relative rounded-2xl border border-border/60 p-5 pt-12 md:p-8 md:pt-12 mb-6"
+          className="relative rounded-2xl border border-border/60 p-5 md:p-8 space-y-4"
           style={{
             backgroundImage:
               'radial-gradient(circle, rgba(43, 43, 43, 0.08) 1px, transparent 1px)',
@@ -158,14 +217,13 @@ export default function Home() {
             backgroundColor: 'rgba(241, 233, 221, 0.35)',
           }}
         >
-          <span className="absolute top-3 left-4 text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-semibold bg-background/90 border border-border/60 rounded-full px-2.5 py-1">
-            Observability &amp; Telemetry
-          </span>
-
           <a
             href={obs.url}
-            className="flex flex-col items-center text-center gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-6 transition-all duration-200"
+            className="relative flex flex-col items-center text-center gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-6 transition-all duration-200"
           >
+            <span className="absolute top-3 right-3 text-[10px] uppercase tracking-[0.15em] text-primary font-semibold">
+              Platform
+            </span>
             <h3 className="flex items-center justify-center gap-2 text-foreground font-semibold text-sm leading-snug">
               <Server size={16} style={{ color: '#C56A2D' }} strokeWidth={2.25} />
               {obs.title}
@@ -177,33 +235,28 @@ export default function Home() {
               {obs.thesis}
             </p>
           </a>
-        </div>
 
-        {/* Zone 2: Applications */}
-        <div
-          className="relative rounded-2xl border border-border/60 p-5 pt-12 md:p-8 md:pt-12"
-          style={{
-            backgroundImage:
-              'radial-gradient(circle, rgba(43, 43, 43, 0.08) 1px, transparent 1px)',
-            backgroundSize: '18px 18px',
-            backgroundColor: 'rgba(241, 233, 221, 0.35)',
-          }}
-        >
-          <span className="absolute top-3 left-4 text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-semibold bg-background/90 border border-border/60 rounded-full px-2.5 py-1">
-            Applications
-          </span>
+          <div className="hidden sm:grid grid-cols-3 gap-4 -my-1">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="flex justify-center">
+                <ArrowUp
+                  size={20}
+                  strokeWidth={1.75}
+                  className="text-primary/60"
+                />
+              </div>
+            ))}
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {feederApps.map((app) => {
               const cardClass =
-                'flex flex-col gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-5 h-full transition-all duration-200'
+                'relative flex flex-col gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-5 h-full transition-all duration-200'
               const inner = (
                 <>
-                  <div className="flex items-center justify-end">
-                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground bg-secondary border border-border rounded-full px-2 py-0.5">
-                      {app.tag}
-                    </span>
-                  </div>
+                  <span className="absolute top-3 right-3 text-[10px] uppercase tracking-[0.15em] text-primary font-semibold">
+                    App
+                  </span>
                   <h3 className="text-foreground font-semibold text-sm leading-snug">
                     {app.title}
                   </h3>
@@ -228,6 +281,22 @@ export default function Home() {
                 </div>
               )
             })}
+          </div>
+
+          <div className="relative flex flex-col items-center text-center gap-3 bg-card border border-border rounded-xl p-6">
+            <span className="absolute top-3 right-3 text-[10px] uppercase tracking-[0.15em] text-primary font-semibold">
+              Lab
+            </span>
+            <h3 className="text-foreground font-semibold text-sm leading-snug">
+              {workbench.title}
+            </h3>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
+              {workbench.description}
+            </p>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl border-t border-border/60 pt-3 mt-1">
+              <span className="text-foreground/80 font-medium">Workplace application: </span>
+              {workbench.applicability}
+            </p>
           </div>
         </div>
       </section>

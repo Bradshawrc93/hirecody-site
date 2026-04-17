@@ -13,7 +13,8 @@
       "Bash(node:*)",
       "Bash(npx next:*)",
       "Bash(gh api:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(npx --no-install tsc --noEmit)"
     ]
   }
 }
