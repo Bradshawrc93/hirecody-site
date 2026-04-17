@@ -10,7 +10,7 @@ type Stats = {
 async function getStats(): Promise<Stats | null> {
   try {
     const res = await fetch('https://obs.hirecody.dev/api/public/stats', {
-      next: { revalidate: 60 },
+      cache: 'no-store',
     })
     if (!res.ok) return null
     return (await res.json()) as Stats
