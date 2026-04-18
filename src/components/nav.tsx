@@ -29,22 +29,22 @@ export default function Nav() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           <Link
-            href="/#apps"
+            href="/"
             className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200"
           >
-            Apps
+            Home
           </Link>
           <Link
-            href="/about"
+            href="/apps"
             className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200"
           >
-            About
+            Working Ideas
           </Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://www.linkedin.com/in/cody-bradshaw-41965017b/"
+            href="https://www.linkedin.com/in/codybradshaw93/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-200"
@@ -80,21 +80,21 @@ export default function Nav() {
       {mobileOpen && (
         <div className="md:hidden bg-background border-b border-border px-6 pb-4 space-y-3">
           <Link
-            href="/#apps"
+            href="/"
             onClick={() => setMobileOpen(false)}
             className="block text-muted-foreground hover:text-foreground text-sm transition-colors pt-1"
           >
-            Apps
+            Home
           </Link>
           <Link
-            href="/about"
+            href="/apps"
             onClick={() => setMobileOpen(false)}
             className="block text-muted-foreground hover:text-foreground text-sm transition-colors"
           >
-            About
+            Working Ideas
           </Link>
           <a
-            href="https://www.linkedin.com/in/cody-bradshaw-41965017b/"
+            href="https://www.linkedin.com/in/codybradshaw93/"
             target="_blank"
             rel="noopener noreferrer"
             className="block text-primary text-sm font-medium"

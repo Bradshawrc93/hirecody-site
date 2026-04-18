@@ -14,7 +14,12 @@
       "Bash(npx next:*)",
       "Bash(gh api:*)",
       "Bash(npx tsc:*)",
-      "Bash(npx --no-install tsc --noEmit)"
+      "Bash(npx --no-install tsc --noEmit)",
+      "Bash(command -v python3)",
+      "Bash(python3 -c \"import PyPDF2\")",
+      "Bash(python3 -c \"import pypdf\")",
+      "Bash(pip3 list *)",
+      "Bash(pip3 install *)"
     ]
   }
 }
