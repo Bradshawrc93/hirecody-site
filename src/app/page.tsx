@@ -72,7 +72,7 @@ export default function Home() {
   const chatWidget = (
     <div className="bg-card border border-border rounded-xl overflow-hidden h-[380px]">
       <iframe
-        src="https://chatbot.hirecody.dev"
+        src="https://chatbot.hirecody.dev/?ctx=home"
         title="Chat with AI Cody"
         className="w-full h-full border-0"
       />

@@ -359,7 +359,7 @@ export default async function Apps() {
 
         <div className="bg-card border border-border rounded-2xl overflow-hidden h-[520px]">
           <iframe
-            src="https://chatbot.hirecody.dev"
+            src="https://chatbot.hirecody.dev/?ctx=projects"
             title="Chat with AI Cody"
             className="w-full h-full border-0"
           />
