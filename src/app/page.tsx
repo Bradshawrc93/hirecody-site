@@ -69,6 +69,7 @@ const feederApps: FeederApp[] = [
       'Release notes and continuous training for this site and every app in the portfolio — a running changelog paired with on-demand lessons so you can see what shipped and get up to speed on how to use it.',
     applicability:
       'Keeps GTM teams current on the latest product functionality — doubles as the release notes source of truth and a continuous training layer so sales, support, and CS aren’t learning about new features from customers.',
+    url: 'https://beacon.hirecody.dev',
   },
 ]
 
