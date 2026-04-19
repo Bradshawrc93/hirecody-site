@@ -1,4 +1,5 @@
 import { Briefcase } from 'lucide-react'
+import { TrackedChatFrame } from '@/components/tracked'
 
 type TimelineEntry = {
   role: string
@@ -70,13 +71,12 @@ const highlights = [
 
 export default function Home() {
   const chatWidget = (
-    <div className="bg-card border border-border rounded-xl overflow-hidden h-[380px]">
-      <iframe
-        src="https://chatbot.hirecody.dev/?ctx=home"
-        title="Chat with AI Cody"
-        className="w-full h-full border-0"
-      />
-    </div>
+    <TrackedChatFrame
+      ctx="home"
+      src="https://chatbot.hirecody.dev/?ctx=home"
+      title="Chat with AI Cody"
+      className="bg-card border border-border rounded-xl overflow-hidden h-[380px]"
+    />
   )
 
   return (

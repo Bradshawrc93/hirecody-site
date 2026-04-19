@@ -1,4 +1,5 @@
 import { ArrowUp, ArrowUpRight, MessageSquare, Package, Play, Server } from 'lucide-react'
+import { TrackedChatFrame, TrackedLink } from '@/components/tracked'
 
 type Stats = {
   chatbotMessages: number
@@ -263,7 +264,9 @@ export default async function Apps() {
             backgroundColor: 'rgba(241, 233, 221, 0.35)',
           }}
         >
-          <a
+          <TrackedLink
+            event="probe_click"
+            eventProps={{ app: 'obs', location: 'apps_page' }}
             href={obs.url}
             className="group relative flex flex-col items-center text-center gap-3 bg-card hover:bg-[#E4D8C5] hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] border border-border rounded-xl p-6 transition-all duration-200"
           >
@@ -283,7 +286,7 @@ export default async function Apps() {
             <span className="inline-flex items-center gap-1 text-primary text-xs font-medium mt-1 group-hover:translate-x-0.5 transition-transform">
               Open Obs <ArrowUpRight size={12} strokeWidth={2.25} />
             </span>
-          </a>
+          </TrackedLink>
 
           <div className="hidden sm:grid grid-cols-3 gap-4 my-2">
             {[0, 1, 2].map((i) => (
@@ -326,9 +329,15 @@ export default async function Apps() {
                 </>
               )
               return app.url ? (
-                <a key={app.title} href={app.url} className={cardClass}>
+                <TrackedLink
+                  key={app.title}
+                  event="probe_click"
+                  eventProps={{ app: app.title.toLowerCase(), location: 'apps_page' }}
+                  href={app.url}
+                  className={cardClass}
+                >
                   {inner}
-                </a>
+                </TrackedLink>
               ) : (
                 <div key={app.title} className={cardClass}>
                   {inner}
@@ -358,13 +367,12 @@ export default async function Apps() {
           you&apos;re thinking about.
         </p>
 
-        <div className="bg-card border border-border rounded-2xl overflow-hidden h-[520px]">
-          <iframe
-            src="https://chatbot.hirecody.dev/?ctx=projects"
-            title="Chat with AI Cody"
-            className="w-full h-full border-0"
-          />
-        </div>
+        <TrackedChatFrame
+          ctx="projects"
+          src="https://chatbot.hirecody.dev/?ctx=projects"
+          title="Chat with AI Cody"
+          className="bg-card border border-border rounded-2xl overflow-hidden h-[520px]"
+        />
       </section>
     </>
   )

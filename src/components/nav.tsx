@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { track } from '@vercel/analytics'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -47,6 +48,7 @@ export default function Nav() {
             href="https://www.linkedin.com/in/codybradshaw93/"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track('linkedin_click', { location: 'nav_desktop' })}
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-200"
           >
             LinkedIn
@@ -54,6 +56,7 @@ export default function Nav() {
           <a
             href="/resume.pdf"
             download
+            onClick={() => track('resume_download', { location: 'nav_desktop' })}
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-200"
           >
             Resume
@@ -97,6 +100,7 @@ export default function Nav() {
             href="https://www.linkedin.com/in/codybradshaw93/"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track('linkedin_click', { location: 'nav_mobile' })}
             className="block text-primary text-sm font-medium"
           >
             LinkedIn
@@ -104,6 +108,7 @@ export default function Nav() {
           <a
             href="/resume.pdf"
             download
+            onClick={() => track('resume_download', { location: 'nav_mobile' })}
             className="block text-primary text-sm font-medium"
           >
             Resume
