@@ -274,7 +274,7 @@ export default async function Apps() {
               Platform
             </span>
             <h3 className="flex items-center justify-center gap-2 text-foreground font-semibold text-sm leading-snug">
-              <Server size={16} style={{ color: '#C56A2D' }} strokeWidth={2.25} />
+              <Server size={16} style={{ color: 'var(--primary)' }} strokeWidth={2.25} />
               {obs.title}
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">

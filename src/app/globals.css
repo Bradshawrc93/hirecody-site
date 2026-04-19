@@ -4,35 +4,35 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Warm off-white background */
-  --background: #FAF7F2;
-  /* Charcoal text */
-  --foreground: #2B2B2B;
-  /* Soft sand card */
-  --card: #F1E9DD;
-  --card-foreground: #2B2B2B;
-  --popover: #FAF7F2;
-  --popover-foreground: #2B2B2B;
-  /* Burnt orange primary */
-  --primary: #C56A2D;
-  --primary-foreground: #FAF7F2;
-  /* Sand secondary */
-  --secondary: #F1E9DD;
-  --secondary-foreground: #2B2B2B;
-  --muted: #F1E9DD;
-  /* Muted gray text */
-  --muted-foreground: #6B6B6B;
-  --accent: #C56A2D;
-  --accent-foreground: #FAF7F2;
+  /* Mint-tinted off-white background */
+  --background: #F1F6F2;
+  /* Deep forest text */
+  --foreground: #15302A;
+  /* Pale mint card */
+  --card: #DCEBE2;
+  --card-foreground: #15302A;
+  --popover: #F1F6F2;
+  --popover-foreground: #15302A;
+  /* Vibrant forest-mint primary */
+  --primary: #2E7D5B;
+  --primary-foreground: #F1F6F2;
+  /* Pale mint secondary */
+  --secondary: #DCEBE2;
+  --secondary-foreground: #15302A;
+  --muted: #E5EFE8;
+  /* Muted sage text */
+  --muted-foreground: #4F6B5F;
+  --accent: #2E7D5B;
+  --accent-foreground: #F1F6F2;
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: #FAF7F2;
-  /* Soft warm border */
-  --border: #E5DDD0;
-  --input: #E5DDD0;
-  --ring: #C56A2D;
+  --destructive-foreground: #F1F6F2;
+  /* Soft mint border */
+  --border: #C8DCD0;
+  --input: #C8DCD0;
+  --ring: #2E7D5B;
   --radius: 0.75rem;
-  /* Dashboard panel */
-  --panel: #EDE5D8;
+  /* Mint dashboard panel */
+  --panel: #D2E2D7;
 }
 
 @theme inline {
