@@ -284,13 +284,13 @@ export default async function Apps() {
             </span>
           </a>
 
-          <div className="hidden sm:grid grid-cols-3 gap-4 -my-1">
+          <div className="hidden sm:grid grid-cols-3 gap-4 my-2">
             {[0, 1, 2].map((i) => (
               <div key={i} className="flex justify-center">
                 <ArrowUp
-                  size={20}
-                  strokeWidth={1.75}
-                  className="text-primary/60"
+                  size={36}
+                  strokeWidth={2.25}
+                  className="text-primary"
                 />
               </div>
             ))}

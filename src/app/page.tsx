@@ -13,7 +13,7 @@ const timeline: TimelineEntry[] = [
     role: 'Senior Manager, Product Operations',
     company: 'Thoughtful AI / Smarter Technologies',
     location: 'Austin, TX (remote)',
-    dates: 'Jun 2025 – Apr 2026',
+    dates: 'Jun 2025 – Present',
     summary:
       'Partnered with the CPO on strategy across five product workstreams. Designed the product + engineering operating framework adopted by the combined org after the Thoughtful / Access Healthcare merger.',
   },
