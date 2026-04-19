@@ -254,7 +254,8 @@ export default async function Apps() {
         </div>
 
         <div
-          className="relative rounded-2xl border border-border/60 p-5 md:p-8 space-y-4"
+          id="probes"
+          className="relative rounded-2xl border border-border/60 p-5 md:p-8 space-y-4 scroll-mt-24"
           style={{
             backgroundImage:
               'radial-gradient(circle, rgba(43, 43, 43, 0.08) 1px, transparent 1px)',
