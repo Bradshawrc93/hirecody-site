@@ -16,7 +16,7 @@ const timeline: TimelineEntry[] = [
     location: 'Austin, TX (remote)',
     dates: 'Jun 2025 – Present',
     summary:
-      'Partnered with the CPO on strategy across five product workstreams. Designed the product + engineering operating framework adopted by the combined org after the Thoughtful / Access Healthcare merger.',
+      'CPO\'s operational partner across five product workstreams. Designed the post-merger operating framework the combined org runs on, and chaired the weekly review that governs roadmap prioritization and engineering headcount.',
   },
   {
     role: 'Head of Customer Support & Engineering Operations',
@@ -24,7 +24,7 @@ const timeline: TimelineEntry[] = [
     location: 'Austin, TX (remote)',
     dates: 'Mar 2024 – Jun 2025',
     summary:
-      'Ran 24/7 enterprise support (~7-min first response vs. 15-min SLA) and scaled the offshore delivery org from ~25 to ~75 engineers across LATAM and Eastern Europe.',
+      'Scaled the offshore support and delivery org from 25 to 75 across LATAM and EMEA, and stood up 24/7 enterprise support at ~7-min first response. Built the capacity forecasting models leadership used to plan hiring and pace deal flow, and shipped the automation layer that caught production issues before customers saw them.',
   },
   {
     role: 'Customer Support Analyst',
@@ -32,7 +32,7 @@ const timeline: TimelineEntry[] = [
     location: 'Austin, TX (remote)',
     dates: 'Nov 2022 – Mar 2024',
     summary:
-      'Founding support hire — stood up the service desk, MTTR dashboard, and triage workflow from scratch, then consolidated a fragmented support stack onto a single service platform.',
+      "Founding post-go-live hire — stood up the full support ops stack in eight weeks. Built Nexus, the Notion command center that tracked every account from signed contract through production, and the engineering bootcamp that became the company's standard path for onboarding technical talent.",
   },
   {
     role: 'Software Implementation Consultant',
@@ -40,7 +40,7 @@ const timeline: TimelineEntry[] = [
     location: 'Remote',
     dates: 'Feb 2022 – Nov 2022',
     summary:
-      'Ran simultaneous SaaS implementations for 10+ government clients and standardized the onboarding and training materials that were then rolled out org-wide.',
+      'Led concurrent SaaS implementations for state and municipal clients, tailoring onboarding, integration, and training to each. Standardized the onboarding and training materials that were rolled out across the org, and built automated reporting that cut manual overhead for client stakeholders.',
   },
   {
     role: 'Project Manager',
@@ -48,7 +48,7 @@ const timeline: TimelineEntry[] = [
     location: 'Remote',
     dates: 'May 2021 – Feb 2022',
     summary:
-      'Managed 10+ concurrent ServiceNow deployments against scope, timeline, and budget. Owned P&L, resource allocation, and executive stakeholder communication across technical delivery partnerships.',
+      'Managed delivery for ten ServiceNow client engagements against scope, timeline, and budget, coordinating between technical SMEs and client stakeholders. Ran the weekly project cadence — scorecards, status, change-orders, and SOW triggers — and owned executive-level reporting across distributed delivery teams.',
   },
   {
     role: 'Technical Trainer',
@@ -56,17 +56,17 @@ const timeline: TimelineEntry[] = [
     location: 'Remote',
     dates: 'Oct 2018 – Jan 2020',
     summary:
-      'Designed onboarding programs for 15 large healthcare accounts, cutting time-to-value. Built the online knowledge base and video library that became the default onboarding path for new clients.',
+      "Designed the standard onboarding program for healthcare clients that cut onboarding time in half, and served as the company's default onboarding lead across live and recorded training for employees, customers, and partners.",
   },
 ]
 
 const highlights = [
-  'Scaled an offshore delivery org from ~25 to ~75 engineers across LATAM and Eastern Europe.',
-  'Designed the product and engineering operating framework the combined org adopted after the Thoughtful / Access Healthcare merger — covering the recurring ceremonies from quarterly planning down to team standups.',
-  "The person leadership turns to for ambiguous, cross-team problems that sit between functions — most recently as the CPO's operational partner across five product workstreams, co-authoring board materials and keeping every workstream on track week over week.",
-  'Championed internal automations the team used day to day — a dependency-detection tool, a live-agent bug-catcher, and a Jira automation that provisioned projects and boards for every signed customer deal.',
-  'Founding support hire — stood up the service desk, MTTR dashboard, and triage workflow from scratch, then consolidated a fragmented support stack onto a single service platform.',
-  'B.S., Information Technology — Colorado State University Global. CSM, ITIL Foundation, Lean Six Sigma White Belt.',
+  "CPO's operational partner across five product workstreams — shaping how product and engineering show up at the board level.",
+  'Designed the post-merger operating framework the combined Thoughtful / Access Healthcare org runs on today.',
+  'Scaled the offshore support and delivery org from 25 to 75 across LATAM and EMEA.',
+  'Built the capacity forecasting models leadership uses to plan hiring and pace deal flow against delivery capacity.',
+  'Shipped the automation layer — dependency scanner, live bug-catcher, AI triage — that caught production issues before customers saw them.',
+  'Founding post-go-live hire at Thoughtful — stood up the full support ops stack in eight weeks.',
 ]
 
 export default function Home() {
