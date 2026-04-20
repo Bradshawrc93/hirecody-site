@@ -4,14 +4,14 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Mint-tinted off-white background */
-  --background: #F1F6F2;
+  /* Near-neutral off-white with a hint of green */
+  --background: #F6F7F5;
   /* Deep forest text */
   --foreground: #15302A;
   /* Pale mint card */
   --card: #DCEBE2;
   --card-foreground: #15302A;
-  --popover: #F1F6F2;
+  --popover: #F6F7F5;
   --popover-foreground: #15302A;
   /* Vibrant forest-mint primary */
   --primary: #2E7D5B;
