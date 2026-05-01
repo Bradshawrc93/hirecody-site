@@ -36,10 +36,10 @@ export default function Nav() {
             Home
           </Link>
           <Link
-            href="/apps"
+            href="/#artifacts"
             className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200"
           >
-            Working Ideas
+            Artifacts
           </Link>
         </nav>
 
@@ -49,7 +49,7 @@ export default function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track('linkedin_click', { location: 'nav_desktop' })}
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-200"
+            className="inline-flex items-center gap-2 bg-foreground text-background text-sm font-medium px-4 py-2 rounded-lg hover:bg-foreground/85 transition-colors duration-200"
           >
             LinkedIn
           </a>
@@ -57,7 +57,7 @@ export default function Nav() {
             href="/resume.pdf"
             download
             onClick={() => track('resume_download', { location: 'nav_desktop' })}
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-200"
+            className="inline-flex items-center gap-2 bg-foreground text-background text-sm font-medium px-4 py-2 rounded-lg hover:bg-foreground/85 transition-colors duration-200"
           >
             Resume
           </a>
@@ -90,11 +90,11 @@ export default function Nav() {
             Home
           </Link>
           <Link
-            href="/apps"
+            href="/#artifacts"
             onClick={() => setMobileOpen(false)}
             className="block text-muted-foreground hover:text-foreground text-sm transition-colors"
           >
-            Working Ideas
+            Artifacts
           </Link>
           <a
             href="https://www.linkedin.com/in/codybradshaw93/"

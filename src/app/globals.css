@@ -6,22 +6,22 @@
 :root {
   /* Near-neutral off-white with a hint of green */
   --background: #F6F7F5;
-  /* Deep forest text */
-  --foreground: #15302A;
+  /* Near-black text — mint stays as accent flecks, not the dominant ink */
+  --foreground: #111111;
   /* Pale mint card */
   --card: #DCEBE2;
-  --card-foreground: #15302A;
+  --card-foreground: #111111;
   --popover: #F6F7F5;
-  --popover-foreground: #15302A;
-  /* Vibrant forest-mint primary */
+  --popover-foreground: #111111;
+  /* Mint-forest primary — preserved for accent text, eyebrows, markers */
   --primary: #2E7D5B;
   --primary-foreground: #F1F6F2;
   /* Pale mint secondary */
   --secondary: #DCEBE2;
-  --secondary-foreground: #15302A;
+  --secondary-foreground: #111111;
   --muted: #E5EFE8;
-  /* Muted sage text */
-  --muted-foreground: #4F6B5F;
+  /* Warm neutral with a green hint — sits between black text and mint surfaces */
+  --muted-foreground: #5E665F;
   --accent: #2E7D5B;
   --accent-foreground: #F1F6F2;
   --destructive: oklch(0.577 0.245 27.325);
@@ -63,6 +63,15 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-panel: var(--panel);
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
 }
 
 @layer base {
