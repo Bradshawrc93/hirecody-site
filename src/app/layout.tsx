@@ -3,6 +3,7 @@ import { Inter, Lora, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Nav from '@/components/nav'
 import Footer from '@/components/footer'
+import { PageDuration } from '@/components/page-duration'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -29,6 +30,7 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
         <Footer />
         <Analytics />
+        <PageDuration />
       </body>
     </html>
   )

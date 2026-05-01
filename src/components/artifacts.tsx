@@ -81,7 +81,10 @@ export function Artifacts() {
             <button
               key={f.value}
               type="button"
-              onClick={() => setFilter(f.value)}
+              onClick={() => {
+                setFilter(f.value)
+                track('artifact_filter', { filter: f.value })
+              }}
               className={
                 active
                   ? 'px-3 py-1.5 rounded-md text-sm font-medium bg-foreground text-background transition-colors'

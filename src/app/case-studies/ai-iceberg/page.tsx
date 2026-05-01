@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowLeft } from 'lucide-react'
 import { Section } from '@/components/case-study-layout'
+import { TrackedLink } from '@/components/tracked'
 
 export const metadata = {
   title: 'The AI Iceberg | Cody Bradshaw',
@@ -285,20 +286,24 @@ export default function AiIceberg() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3 mt-6">
-              <a
+              <TrackedLink
+                event="contact_click"
+                eventProps={{ location: 'case_study_ai_iceberg', method: 'email' }}
                 href="mailto:bradshawrc93@gmail.com?subject=AI%20Iceberg%20%E2%80%94%20let%27s%20talk"
                 className="inline-flex items-center gap-2 bg-foreground text-background text-sm font-medium px-4 py-2 rounded-lg hover:bg-foreground/85 transition-colors duration-200"
               >
                 Get in touch
-              </a>
-              <a
+              </TrackedLink>
+              <TrackedLink
+                event="contact_click"
+                eventProps={{ location: 'case_study_ai_iceberg', method: 'linkedin' }}
                 href="https://www.linkedin.com/in/codybradshaw93/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-card border border-border text-foreground text-sm font-medium px-4 py-2 rounded-lg hover:border-foreground/40 transition-colors duration-200"
               >
                 LinkedIn
-              </a>
+              </TrackedLink>
             </div>
           </section>
         </div>
