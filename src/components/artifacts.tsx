@@ -56,6 +56,14 @@ const artifacts: Artifact[] = [
       'A piece on the layered structure of AI inside organizations — surface, waterline, and what lives below — and why the gap between companies operating at each level is the most under-discussed business risk of the next five years.',
     href: '/case-studies/ai-iceberg',
   },
+  {
+    kind: 'case_study',
+    title: 'Shadow AI',
+    tagline: "the org chart your company doesn't know it has",
+    description:
+      'Every company already has an unofficial AI strategy — the personal accounts, custom GPTs, and one-person agents employees built to get their work done. A piece on what that shadow really costs, and how to round it up before it walks out the door.',
+    href: '/case-studies/shadow-ai',
+  },
 ]
 
 type Filter = 'all' | ArtifactKind

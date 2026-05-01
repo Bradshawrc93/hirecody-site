@@ -1,18 +1,27 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { track } from '@vercel/analytics'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === '/') {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 
   return (
     <header
@@ -23,7 +32,11 @@ export default function Nav() {
       }`}
     >
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-foreground font-semibold tracking-tight text-sm">
+        <Link
+          href="/"
+          onClick={handleHomeClick}
+          className="text-foreground font-semibold tracking-tight text-sm"
+        >
           Cody Bradshaw
         </Link>
 
@@ -31,6 +44,7 @@ export default function Nav() {
         <nav className="hidden md:flex items-center gap-8">
           <Link
             href="/"
+            onClick={handleHomeClick}
             className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200"
           >
             Home
@@ -84,7 +98,10 @@ export default function Nav() {
         <div className="md:hidden bg-background border-b border-border px-6 pb-4 space-y-3">
           <Link
             href="/"
-            onClick={() => setMobileOpen(false)}
+            onClick={(e) => {
+              setMobileOpen(false)
+              handleHomeClick(e)
+            }}
             className="block text-muted-foreground hover:text-foreground text-sm transition-colors pt-1"
           >
             Home
