@@ -26,6 +26,14 @@ const artifacts: Artifact[] = [
   },
   {
     kind: 'app',
+    title: 'lens',
+    tagline: 'rubric-driven model evaluation',
+    description:
+      'Pick an app, define or reuse a rubric, and run its workflow across multiple models. Each audit returns side-by-side scored outputs and an explicit recommendation that weighs quality against cost and latency.',
+    href: 'https://hirecody-lens.vercel.app',
+  },
+  {
+    kind: 'app',
     title: 'forge',
     tagline: 'automation without engineering',
     description:
