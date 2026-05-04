@@ -277,13 +277,6 @@ export default function AiIceberg() {
                 humans in the loop, how to design the workflows that change
                 the economics of how you operate — that&apos;s the work I do.
               </p>
-              <p>
-                I&apos;m available to lead it as a full-time hire (Chief of
-                Staff, Head of Operations, AI Transformation Lead at a small
-                or mid-sized company moving fast) or to consult on the
-                operating-model redesign that has to happen before any of the
-                tools matter.
-              </p>
             </div>
             <div className="flex flex-wrap gap-3 mt-6">
               <TrackedLink
