@@ -47,55 +47,48 @@ export default function Home() {
             </h2>
             <div className="text-muted-foreground text-sm leading-relaxed space-y-3">
               <p>
-                Senior operations leader with seven-plus years across
-                enterprise tech and healthcare, now focused on the
-                operational layer of AI transformation — how small and
-                mid-sized companies redesign their workflows, decisions,
-                and systems around AI as the default rather than bolting it
-                onto how things used to work.
+                I&apos;ve spent the last seven-plus years in operations
+                across enterprise tech and healthcare. Most of that was at
+                Thoughtful AI — I joined as the founding post-go-live hire,
+                built customer support from scratch into a 75+ person team
+                across three continents, then moved into senior product ops
+                working with the CPO on product and engineering strategy.
               </p>
               <p>
-                The foundation is operating experience. I spent three and a
-                half years at Thoughtful AI — joined as the founding
-                post-go-live hire, progressed into a senior product
-                operations role partnered with the CPO across product and
-                engineering strategy. I&apos;m the person leadership turns
-                to for the ambiguous, cross-team problems that sit between
-                functions, and I see them through to resolution.
+                The work I get pulled into is usually the messy, cross-team
+                stuff nobody else owns — standing up 24/7 support, scaling
+                offshore delivery, migrating off bad tools, integrating
+                teams through an M&amp;A. What ties it together is the
+                structure underneath: org design, SLAs, KPIs, ceremonies,
+                governance, capacity forecasting — the boring stuff that
+                keeps a fast-scaling company from falling over.
               </p>
             </div>
           </div>
 
           <div>
             <h2 className="text-foreground font-semibold text-sm tracking-wide uppercase mb-3">
-              What I Can Offer
+              What I&apos;m Offering
             </h2>
             <div className="text-muted-foreground text-sm leading-relaxed space-y-3">
               <p>
-                An operations leader who treats AI as the substrate the
-                company is organized around, not a productivity tool
-                layered onto existing workflows. I design the operating
-                frameworks fast-scaling orgs run on — org design, SLAs and
-                KPIs, ceremonies, governance, capacity forecasting — and
-                I&apos;ve stood up 24/7 support, scaled offshore delivery
-                across three continents, led SaaS tooling migrations, and
-                integrated product and engineering through an M&amp;A.
+                I think about AI as the layer a company is built on, not a
+                productivity tool you bolt on top. The version I want to
+                build routes work to agents before people, replaces tribal
+                knowledge with shared skill libraries, and runs evals
+                alongside the usual KPIs.
               </p>
               <p>
-                What&apos;s different now: the operating system I&apos;m
-                designing is AI-native by default. Workflows route to
-                agents before they route to people. Skills libraries
-                replace tribal knowledge. Eval systems sit alongside KPIs.
-                The frameworks I bring — runbooks, skill libraries,
-                operating frameworks, eval systems — compound across
-                engagements rather than starting from scratch each time.
+                How this is different: the runbooks, skill libraries,
+                frameworks, and eval systems I bring build on each other
+                across engagements rather than starting from scratch each
+                time.
               </p>
               <p>
                 I&apos;m looking for a senior role where rebuilding how the
-                business operates around AI is the mandate, not a side
-                project. Chief of Staff, Head of Operations, or AI
-                Transformation Lead at a small or mid-sized company moving
-                fast.
+                business runs on AI is the actual job, not a side project —
+                Chief of Staff, Head of Operations, or AI Transformation
+                Lead at a company moving fast.
               </p>
             </div>
           </div>
