@@ -461,17 +461,35 @@ export default function AiAsDefault() {
             </p>
             <ul className="list-disc pl-5 marker:text-primary space-y-2">
               <li>
-                <strong className="text-foreground">Obs</strong> — the
-                observability platform that sits underneath everything else.
-                Cost, latency, errors, token usage, and net cost-per-task
+                <TrackedLink
+                  event="artifact_click"
+                  eventProps={{ artifact: 'obs', kind: 'app', source: 'case_study_ai_as_default_about' }}
+                  href="https://obs.hirecody.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground font-semibold underline underline-offset-4 decoration-foreground/40 hover:decoration-foreground transition-colors"
+                >
+                  Obs
+                </TrackedLink>{' '}
+                — the observability platform that sits underneath everything
+                else. Cost, latency, errors, token usage, and net cost-per-task
                 across every skill, role, and model in the core. It&apos;s
                 what makes the central core operable instead of theoretical —
                 you can&apos;t run a substrate you can&apos;t see.
               </li>
               <li>
-                <strong className="text-foreground">Lens</strong> — continuous
-                model evaluation. Keeping skills on the right model as
-                providers ship and prices shift.
+                <TrackedLink
+                  event="artifact_click"
+                  eventProps={{ artifact: 'lens', kind: 'app', source: 'case_study_ai_as_default_about' }}
+                  href="https://hirecody-lens.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground font-semibold underline underline-offset-4 decoration-foreground/40 hover:decoration-foreground transition-colors"
+                >
+                  Lens
+                </TrackedLink>{' '}
+                — continuous model evaluation. Keeping skills on the right
+                model as providers ship and prices shift.
               </li>
             </ul>
             <p>
